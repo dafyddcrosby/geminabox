@@ -289,7 +289,7 @@ HTML
     end
 
     def remote_gem_list
-      RubygemsDependency.for(*query_gems)
+      RubygemsDependency.for(*(query_gems - Geminabox.proxy_gem_blacklist))
     end
 
     def combined_gem_list

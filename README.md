@@ -50,6 +50,10 @@ If you want Geminabox to carry on providing gems when rubygems.org is unavailabl
 
     Geminabox.allow_remote_failure = true
 
+If there are gems that you do not wish to have proxied, set:
+
+    Geminabox.proxy_gem_blacklist = ['ignored_gem1', 'ignored_gem2']
+
 ## HTTP adapter
 
 Geminabox uses the HTTPClient gem to manage its connections to remote resources.

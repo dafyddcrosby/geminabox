@@ -46,6 +46,7 @@ module Geminabox
       :gem_permissions,
       :allow_delete,
       :rubygems_proxy,
+      :proxy_gem_blacklist,
       :http_adapter,
       :lockfile,
       :retry_interval,
@@ -65,7 +66,7 @@ module Geminabox
     def settings
       Server.settings
     end
-    
+
     def call(env)
       Server.call env
     end
@@ -80,6 +81,7 @@ module Geminabox
     allow_replace:         false,
     gem_permissions:       0644,
     rubygems_proxy:        (ENV['RUBYGEMS_PROXY'] == 'true'),
+    proxy_gem_blacklist:   [],
     allow_delete:          true,
     http_adapter:          HttpClientAdapter.new,
     lockfile:              '/tmp/geminabox.lockfile',
@@ -89,5 +91,5 @@ module Geminabox
     bundler_ruby_gems_url: 'https://bundler.rubygems.org/',
     allow_upload:          true
   )
-    
+
 end
